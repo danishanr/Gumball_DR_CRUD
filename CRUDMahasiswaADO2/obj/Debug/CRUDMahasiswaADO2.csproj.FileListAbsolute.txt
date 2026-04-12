@@ -1,0 +1,10 @@
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\bin\Debug\CRUDMahasiswaADO2.exe.config
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\bin\Debug\CRUDMahasiswaADO2.exe
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\bin\Debug\CRUDMahasiswaADO2.pdb
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\obj\Debug\CRUDMahasiswaADO2.csproj.AssemblyReference.cache
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\obj\Debug\CRUDMahasiswaADO2.Form1.resources
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\obj\Debug\CRUDMahasiswaADO2.Properties.Resources.resources
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\obj\Debug\CRUDMahasiswaADO2.csproj.GenerateResource.cache
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\obj\Debug\CRUDMahasiswaADO2.csproj.CoreCompileInputs.cache
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\obj\Debug\CRUDMahasiswaADO2.exe
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\obj\Debug\CRUDMahasiswaADO2.pdb
