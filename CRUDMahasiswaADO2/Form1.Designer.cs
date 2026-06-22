@@ -64,21 +64,28 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mahasiswaTableAdapter = new CRUDMahasiswaADO2.DBAkademikADODataSetTableAdapters.MahasiswaTableAdapter();
-            this.btnResetData = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnTestInjection = new System.Windows.Forms.Button();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.btnCetak = new System.Windows.Forms.Button();
+            this.lblCountMhs = new System.Windows.Forms.Label();
+            this.btnRekap = new System.Windows.Forms.Button();
+            this.fotoMhs = new System.Windows.Forms.PictureBox();
+            this.btnUpload = new System.Windows.Forms.Button();
+            this.btnCari = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnImpExcel = new System.Windows.Forms.Button();
+            this.btnImpDb = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoMhs)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 32);
+            this.label1.Location = new System.Drawing.Point(43, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 16);
             this.label1.TabIndex = 0;
@@ -87,7 +94,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 60);
+            this.label2.Location = new System.Drawing.Point(43, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 1;
@@ -96,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 90);
+            this.label3.Location = new System.Drawing.Point(38, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 16);
             this.label3.TabIndex = 2;
@@ -105,7 +112,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(38, 122);
+            this.label4.Location = new System.Drawing.Point(38, 191);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 16);
             this.label4.TabIndex = 3;
@@ -114,7 +121,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(38, 153);
+            this.label5.Location = new System.Drawing.Point(38, 231);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 16);
             this.label5.TabIndex = 4;
@@ -123,7 +130,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(38, 215);
+            this.label6.Location = new System.Drawing.Point(38, 307);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 16);
             this.label6.TabIndex = 5;
@@ -133,7 +140,7 @@
             // txtNIM
             // 
             this.txtNIM.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource, "NIM", true));
-            this.txtNIM.Location = new System.Drawing.Point(194, 32);
+            this.txtNIM.Location = new System.Drawing.Point(146, 47);
             this.txtNIM.Name = "txtNIM";
             this.txtNIM.Size = new System.Drawing.Size(179, 22);
             this.txtNIM.TabIndex = 6;
@@ -151,7 +158,7 @@
             // txtNama
             // 
             this.txtNama.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource, "Nama", true));
-            this.txtNama.Location = new System.Drawing.Point(194, 60);
+            this.txtNama.Location = new System.Drawing.Point(146, 87);
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(179, 22);
             this.txtNama.TabIndex = 7;
@@ -159,7 +166,7 @@
             // txtAlamat
             // 
             this.txtAlamat.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource, "Alamat", true));
-            this.txtAlamat.Location = new System.Drawing.Point(194, 147);
+            this.txtAlamat.Location = new System.Drawing.Point(146, 231);
             this.txtAlamat.Name = "txtAlamat";
             this.txtAlamat.Size = new System.Drawing.Size(179, 22);
             this.txtAlamat.TabIndex = 8;
@@ -167,7 +174,7 @@
             // txtKodeProdi
             // 
             this.txtKodeProdi.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource, "KodeProdi", true));
-            this.txtKodeProdi.Location = new System.Drawing.Point(194, 215);
+            this.txtKodeProdi.Location = new System.Drawing.Point(146, 301);
             this.txtKodeProdi.Name = "txtKodeProdi";
             this.txtKodeProdi.Size = new System.Drawing.Size(179, 22);
             this.txtKodeProdi.TabIndex = 9;
@@ -175,74 +182,74 @@
             // dtpTanggalLahir
             // 
             this.dtpTanggalLahir.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource, "TanggalLahir", true));
-            this.dtpTanggalLahir.Location = new System.Drawing.Point(194, 119);
+            this.dtpTanggalLahir.Location = new System.Drawing.Point(146, 191);
             this.dtpTanggalLahir.Name = "dtpTanggalLahir";
-            this.dtpTanggalLahir.Size = new System.Drawing.Size(108, 22);
+            this.dtpTanggalLahir.Size = new System.Drawing.Size(121, 22);
             this.dtpTanggalLahir.TabIndex = 10;
             // 
             // cmbJK
             // 
             this.cmbJK.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource, "JenisKelamin", true));
             this.cmbJK.FormattingEnabled = true;
-            this.cmbJK.Location = new System.Drawing.Point(194, 90);
+            this.cmbJK.Location = new System.Drawing.Point(146, 138);
             this.cmbJK.Name = "cmbJK";
             this.cmbJK.Size = new System.Drawing.Size(121, 24);
             this.cmbJK.TabIndex = 11;
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(438, 47);
+            this.btnConnect.Location = new System.Drawing.Point(536, 46);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(156, 23);
+            this.btnConnect.Size = new System.Drawing.Size(103, 23);
             this.btnConnect.TabIndex = 12;
-            this.btnConnect.Text = "Membuka Koneksi";
+            this.btnConnect.Text = "Open";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(438, 87);
+            this.btnLoad.Location = new System.Drawing.Point(536, 90);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(156, 23);
+            this.btnLoad.Size = new System.Drawing.Size(103, 23);
             this.btnLoad.TabIndex = 13;
-            this.btnLoad.Text = "Menampilkan Data";
+            this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(438, 134);
+            this.btnInsert.Location = new System.Drawing.Point(536, 138);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(156, 23);
+            this.btnInsert.Size = new System.Drawing.Size(103, 23);
             this.btnInsert.TabIndex = 14;
-            this.btnInsert.Text = "Menambah Data";
+            this.btnInsert.Text = "Insert";
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(438, 184);
+            this.btnUpdate.Location = new System.Drawing.Point(536, 188);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(156, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(103, 23);
             this.btnUpdate.TabIndex = 15;
-            this.btnUpdate.Text = "Mengubah Data";
+            this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(438, 224);
+            this.btnDelete.Location = new System.Drawing.Point(536, 238);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(156, 23);
+            this.btnDelete.Size = new System.Drawing.Size(103, 23);
             this.btnDelete.TabIndex = 16;
-            this.btnDelete.Text = "Menghapus Data";
+            this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(41, 264);
+            this.dataGridView1.Location = new System.Drawing.Point(41, 363);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -285,7 +292,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(800, 27);
+            this.bindingNavigator1.Size = new System.Drawing.Size(811, 27);
             this.bindingNavigator1.TabIndex = 18;
             this.bindingNavigator1.Text = "BindingNavigator";
             // 
@@ -379,54 +386,118 @@
             // 
             this.mahasiswaTableAdapter.ClearBeforeFill = true;
             // 
-            // btnResetData
+            // btnReset
             // 
-            this.btnResetData.Location = new System.Drawing.Point(632, 83);
-            this.btnResetData.Name = "btnResetData";
-            this.btnResetData.Size = new System.Drawing.Size(156, 23);
-            this.btnResetData.TabIndex = 19;
-            this.btnResetData.Text = "Reset Data";
-            this.btnResetData.UseVisualStyleBackColor = true;
-            this.btnResetData.Click += new System.EventHandler(this.btnResetData_Click);
+            this.btnReset.Location = new System.Drawing.Point(680, 46);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(98, 23);
+            this.btnReset.TabIndex = 19;
+            this.btnReset.Text = "Reset Data";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnResetData_Click);
             // 
             // btnTestInjection
             // 
-            this.btnTestInjection.Location = new System.Drawing.Point(632, 122);
+            this.btnTestInjection.Location = new System.Drawing.Point(680, 83);
             this.btnTestInjection.Name = "btnTestInjection";
-            this.btnTestInjection.Size = new System.Drawing.Size(156, 23);
+            this.btnTestInjection.Size = new System.Drawing.Size(98, 23);
             this.btnTestInjection.TabIndex = 20;
             this.btnTestInjection.Text = "Test";
             this.btnTestInjection.UseVisualStyleBackColor = true;
             this.btnTestInjection.Click += new System.EventHandler(this.btnTestInjection_Click);
             // 
-            // lblTotal
+            // lblCountMhs
             // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(649, 221);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(79, 16);
-            this.lblTotal.TabIndex = 21;
-            this.lblTotal.Text = "Hitung Total";
+            this.lblCountMhs.AutoSize = true;
+            this.lblCountMhs.Location = new System.Drawing.Point(43, 553);
+            this.lblCountMhs.Name = "lblCountMhs";
+            this.lblCountMhs.Size = new System.Drawing.Size(79, 16);
+            this.lblCountMhs.TabIndex = 21;
+            this.lblCountMhs.Text = "Hitung Total";
             // 
-            // btnCetak
+            // btnRekap
             // 
-            this.btnCetak.Location = new System.Drawing.Point(632, 171);
-            this.btnCetak.Name = "btnCetak";
-            this.btnCetak.Size = new System.Drawing.Size(156, 23);
-            this.btnCetak.TabIndex = 22;
-            this.btnCetak.Text = "Rekap Data";
-            this.btnCetak.UseVisualStyleBackColor = true;
-            this.btnCetak.Click += new System.EventHandler(this.btnCetak_Click);
+            this.btnRekap.Location = new System.Drawing.Point(680, 124);
+            this.btnRekap.Name = "btnRekap";
+            this.btnRekap.Size = new System.Drawing.Size(98, 23);
+            this.btnRekap.TabIndex = 22;
+            this.btnRekap.Text = "Rekap Data";
+            this.btnRekap.UseVisualStyleBackColor = true;
+            this.btnRekap.Click += new System.EventHandler(this.btnCetak_Click);
+            // 
+            // fotoMhs
+            // 
+            this.fotoMhs.Location = new System.Drawing.Point(412, 164);
+            this.fotoMhs.Name = "fotoMhs";
+            this.fotoMhs.Size = new System.Drawing.Size(100, 117);
+            this.fotoMhs.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.fotoMhs.TabIndex = 23;
+            this.fotoMhs.TabStop = false;
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.Location = new System.Drawing.Point(412, 287);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(100, 43);
+            this.btnUpload.TabIndex = 24;
+            this.btnUpload.Text = "Upload Gambar";
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
+            // btnCari
+            // 
+            this.btnCari.Location = new System.Drawing.Point(341, 46);
+            this.btnCari.Name = "btnCari";
+            this.btnCari.Size = new System.Drawing.Size(46, 23);
+            this.btnCari.TabIndex = 25;
+            this.btnCari.Text = "Cari";
+            this.btnCari.UseVisualStyleBackColor = true;
+            this.btnCari.Click += new System.EventHandler(this.btnCari_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(536, 287);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(103, 23);
+            this.btnRefresh.TabIndex = 26;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            // 
+            // btnImpExcel
+            // 
+            this.btnImpExcel.Location = new System.Drawing.Point(680, 178);
+            this.btnImpExcel.Name = "btnImpExcel";
+            this.btnImpExcel.Size = new System.Drawing.Size(98, 43);
+            this.btnImpExcel.TabIndex = 27;
+            this.btnImpExcel.Text = "Import form Excel";
+            this.btnImpExcel.UseVisualStyleBackColor = true;
+            this.btnImpExcel.Click += new System.EventHandler(this.btnImpExcel_Click);
+            // 
+            // btnImpDb
+            // 
+            this.btnImpDb.Location = new System.Drawing.Point(680, 238);
+            this.btnImpDb.Name = "btnImpDb";
+            this.btnImpDb.Size = new System.Drawing.Size(98, 43);
+            this.btnImpDb.TabIndex = 28;
+            this.btnImpDb.Text = "Import to Database";
+            this.btnImpDb.UseVisualStyleBackColor = true;
+            this.btnImpDb.Click += new System.EventHandler(this.btnImpDb_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnCetak);
-            this.Controls.Add(this.lblTotal);
+            this.ClientSize = new System.Drawing.Size(811, 578);
+            this.Controls.Add(this.btnImpDb);
+            this.Controls.Add(this.btnImpExcel);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.btnCari);
+            this.Controls.Add(this.btnUpload);
+            this.Controls.Add(this.fotoMhs);
+            this.Controls.Add(this.btnRekap);
+            this.Controls.Add(this.lblCountMhs);
             this.Controls.Add(this.btnTestInjection);
-            this.Controls.Add(this.btnResetData);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnDelete);
@@ -455,6 +526,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoMhs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,10 +569,16 @@
         private DBAkademikADODataSet dBAkademikADODataSet;
         private System.Windows.Forms.BindingSource mahasiswaBindingSource;
         private DBAkademikADODataSetTableAdapters.MahasiswaTableAdapter mahasiswaTableAdapter;
-        private System.Windows.Forms.Button btnResetData;
+        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnTestInjection;
-        private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Button btnCetak;
+        private System.Windows.Forms.Label lblCountMhs;
+        private System.Windows.Forms.Button btnRekap;
+        private System.Windows.Forms.PictureBox fotoMhs;
+        private System.Windows.Forms.Button btnUpload;
+        private System.Windows.Forms.Button btnCari;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnImpExcel;
+        private System.Windows.Forms.Button btnImpDb;
     }
 }
 

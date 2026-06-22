@@ -5,23 +5,48 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace CRUDMahasiswaADO2
 {
+
+
     public class DAL
     {
-        static string connectionString ="Data Source=LAPTOP-49331NDM\\RIANIINDRI;Initial Catalog=DBAkademikADO;Integrated Security=True";
+        static string connectionString = "Data Source=LAPTOP-49331NDM\\RIANIINDRI,1433;Initial Catalog=DBAkademikADO;Integrated Security=True;TrustServerCertificate=True";
 
-        public string GetConnectionString()
+        public static string GetConnectionString()
         {
             return connectionString;
         }
 
-        SqlConnection conn = new SqlConnection(connectionString);
+        SqlConnection conn = new SqlConnection(GetConnectionString());
 
         SqlDataAdapter da;
         DataTable dtMahasiswa;
         DataTable dtProdi;
+
+        public static string GetLocalIPAddress()
+        {
+            string localIP = string.Empty;
+            try
+            {
+                var host = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName());
+                foreach (var ip in host.AddressList)
+                {
+                    if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                    {
+                        localIP = ip.ToString();
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error getting local IP address: " + ex.Message);
+            }
+            return localIP;
+        }
 
         public int CountMhs()
         {
@@ -33,9 +58,8 @@ namespace CRUDMahasiswaADO2
             SqlCommand cmd = new SqlCommand("sp_CountMahasiswa", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            SqlParameter outputParam = new SqlParameter("@pCount", SqlDbType.Int);
+            SqlParameter outputParam = new SqlParameter("@Total", SqlDbType.Int);   // ✅ sudah benar
             outputParam.Direction = ParameterDirection.Output;
-
             cmd.Parameters.Add(outputParam);
 
             cmd.ExecuteNonQuery();
@@ -71,16 +95,18 @@ namespace CRUDMahasiswaADO2
             SqlTransaction trans = conn.BeginTransaction();
             try
             {
-                SqlCommand command = new SqlCommand("sp_InsertMahasiswa", conn);
+                SqlCommand command = new SqlCommand("sp_InsertMahasiswa", conn, trans);
                 command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.AddWithValue("pNIM", nim);
-                command.Parameters.AddWithValue("pNama", nama);
-                command.Parameters.AddWithValue("pAlamat", alamat);
-                command.Parameters.AddWithValue("pTanggalLahir", tanggalLahir);
-                command.Parameters.AddWithValue("pJenisKelamin", jenisKelamin);
-                command.Parameters.AddWithValue("pNmProdi", kodeProdi);
-                command.Parameters.AddWithValue("pFoto", foto);
+                command.Parameters.AddWithValue("@pNIM", nim);
+                command.Parameters.AddWithValue("@pNama", nama);
+                command.Parameters.AddWithValue("@pAlamat", alamat);
+                command.Parameters.AddWithValue("@pTanggalLahir", tanggalLahir);
+                command.Parameters.AddWithValue("@pJenisKelamin", jenisKelamin);
+                command.Parameters.AddWithValue("@pKodeProdi", kodeProdi);
+
+                SqlParameter fotoParam = command.Parameters.Add("@pFoto", SqlDbType.VarBinary, -1);
+                fotoParam.Value = (object)foto ?? DBNull.Value;
 
                 command.ExecuteNonQuery();
                 trans.Commit();
@@ -88,6 +114,7 @@ namespace CRUDMahasiswaADO2
             catch (Exception ex)
             {
                 trans.Rollback();
+                throw;
             }
             finally
             {
@@ -104,13 +131,13 @@ namespace CRUDMahasiswaADO2
 
             SqlCommand command = new SqlCommand("sp_UpdateMahasiswa", conn);
 
-            command.Parameters.AddWithValue("pNIM", nim);
-            command.Parameters.AddWithValue("pNama", nama);
-            command.Parameters.AddWithValue("pAlamat", alamat);
-            command.Parameters.AddWithValue("pJenisKelamin", jenisKelamin);
-            command.Parameters.AddWithValue("pTanggalLahir", tanggalLahir);
-            command.Parameters.AddWithValue("pNmProdi", kodeProdi);
-            command.Parameters.AddWithValue("pFoto", foto);
+            command.Parameters.AddWithValue("@pNIM", nim);
+            command.Parameters.AddWithValue("@pNama", nama);
+            command.Parameters.AddWithValue("@pAlamat", alamat);
+            command.Parameters.AddWithValue("@pJenisKelamin", jenisKelamin);
+            command.Parameters.AddWithValue("@pTanggalLahir", tanggalLahir);
+            command.Parameters.AddWithValue("@pKodeProdi", kodeProdi);
+            command.Parameters.AddWithValue("@pFoto", (object)foto ?? DBNull.Value);
 
             command.CommandType = CommandType.StoredProcedure;
 
@@ -125,7 +152,7 @@ namespace CRUDMahasiswaADO2
             }
 
             SqlCommand cmd = new SqlCommand("sp_DeleteMahasiswa", conn);
-            cmd.Parameters.AddWithValue("pNIM", nim);
+            cmd.Parameters.AddWithValue("@NIM", nim);   // ✅ sesuai SP
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.ExecuteNonQuery();
@@ -171,7 +198,7 @@ namespace CRUDMahasiswaADO2
             SqlCommand cmd = new SqlCommand("sp_GetMahasiswaByNIM", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("pNIM", nim);
+            cmd.Parameters.AddWithValue("@pNIM", nim);   // ✅ tambahkan @
             da = new SqlDataAdapter(cmd);
 
             dtMahasiswa = new DataTable();
@@ -187,10 +214,9 @@ namespace CRUDMahasiswaADO2
                 conn.Open();
             }
 
-            SqlCommand cmd = new SqlCommand("sp_LogMessage", conn);
-
-            cmd.Parameters.AddWithValue("psn", message);
-            cmd.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand(
+                "INSERT INTO LogError VALUES(GETDATE(), @pesan)", conn);
+            cmd.Parameters.AddWithValue("@pesan", message);
             cmd.ExecuteNonQuery();
         }
 

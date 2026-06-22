@@ -28,3 +28,12 @@ E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\bin\Debug\stdole.dll
 E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\obj\Debug\CRUDMahasiswaADO2.Form2.resources
 E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\obj\Debug\CRUDMahasiswaADO2.FormReportPrak13.resources
 E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\obj\Debug\CRUDMaha.2489F348.Up2Date
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\obj\Debug\CRUDMahasiswaADO2.Dashboard.resources
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\bin\Debug\ExcelDataReader.DataSet.dll
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\bin\Debug\ExcelDataReader.dll
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\bin\Debug\System.ValueTuple.dll
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\bin\Debug\ExcelDataReader.pdb
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\bin\Debug\ExcelDataReader.xml
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\bin\Debug\ExcelDataReader.DataSet.pdb
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\bin\Debug\ExcelDataReader.DataSet.xml
+E:\PABD Pertemuan 6\CRUDMahasiswaADO2\CRUDMahasiswaADO2\bin\Debug\System.ValueTuple.xml

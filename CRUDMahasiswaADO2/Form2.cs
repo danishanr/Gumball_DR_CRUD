@@ -19,6 +19,8 @@ namespace CRUDMahasiswaADO2
         SqlDataAdapter da;
         DataTable dtMahasiswa;
 
+        DAL dbLogic = new DAL();
+
         RekapMahasiswa listMahasiswa = new RekapMahasiswa();
         string prodi { get; set; }
         DateTime tglmasuk { get; set; }
@@ -32,39 +34,15 @@ namespace CRUDMahasiswaADO2
 
             try
             {
-                if (conn.State == ConnectionState.Closed)
-                    conn.Open();
+                DataTable dtMahasiswa = dbLogic.getDataRekap(prodi, tglmasuk);
 
-                SqlCommand cmd = new SqlCommand("sp_Report", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@inProdi", prodi);
-                cmd.Parameters.AddWithValue("@inTglMsuk", tglmasuk.Year);
-
-                da = new SqlDataAdapter(cmd);
-                dtMahasiswa = new DataTable();
-                da.Fill(dtMahasiswa);
-                conn.Close();
-
-                // ✅ Konversi DataTable ke List<Data>
-                List<Data> listData = new List<Data>();
-                foreach (DataRow row in dtMahasiswa.Rows)
-                {
-                    listData.Add(new Data()
-                    {
-                        Nama = row["Nama"].ToString(),
-                        JenisKelamin = row["JenisKelamin"].ToString(),
-                        Alamat = row["Alamat"].ToString(),
-                        NamaProdi = row["NamaProdi"].ToString(),
-                        TanggalDaftar = Convert.ToDateTime(row["TanggalDaftar"])
-                    });
-                }
-
-                listMahasiswa.SetDataSource(listData);
-                crystalReportViewer2.ReportSource = listMahasiswa; // ← harus viewer2
-                crystalReportViewer2.Refresh();
+                listMahasiswa.SetDataSource(dtMahasiswa);
+                crystalReportViewer1.ReportSource = listMahasiswa;
+                crystalReportViewer1.Refresh();
             }
             catch (Exception ex)
             {
+                //simpanLog(ex.Message);
                 MessageBox.Show("Gagal load data: " + ex.Message);
             }
         }
